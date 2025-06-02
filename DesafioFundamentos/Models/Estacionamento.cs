@@ -11,13 +11,13 @@ namespace DesafioFundamentos.Models
             this.precoInicial = precoInicial;
             this.precoPorHora = precoPorHora;
         }
-
-        public void AdicionarVeiculo()
+        // <<<<< Adioninar Veiculo  no Sistema >>>>>
+           public void AdicionarVeiculo()
         {
             Console.WriteLine("Digite a placa do veículo para estacionar:");
             string placa = Console.ReadLine();
 
-            // Verifica se o veículo já não foi adicionado
+        // <<<<< Verifica se o veículo já não foi adicionado >>>>>
             if (!veiculos.Any(x => string.Equals(x, placa, StringComparison.OrdinalIgnoreCase)))
             {
                 veiculos.Add(placa);
@@ -28,13 +28,13 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("O veículo não foi adicionado. Não pode ter dois veículos com a mesma placa!");
             }
         }
-
+        // <<<<<Remover Veiculo  do Sistema >>>>>
         public void RemoverVeiculo()
         {
             Console.WriteLine("Digite a placa do veículo para remover:");
             string placa = Console.ReadLine();
 
-            // Verifica se o veículo existe
+        // <<<<< Verifica se o veículo existe >>>>>
             if (veiculos.Any(x => string.Equals(x, placa, StringComparison.OrdinalIgnoreCase)))
             {
                 Console.WriteLine("Digite a quantidade de horas que o veículo permaneceu estacionado:");
@@ -42,7 +42,7 @@ namespace DesafioFundamentos.Models
                 {
                     decimal valorTotal = precoInicial + precoPorHora * horas;
 
-                    // Remove ignorando maiúsculas/minúsculas
+        // <<<<< Remove Veículo do Sistema ----- ignorando maiúsculas/minúsculas>>>>>
                     veiculos.Remove(veiculos.First(x => string.Equals(x, placa, StringComparison.OrdinalIgnoreCase)));
 
                     Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: R$ {valorTotal}");
@@ -57,7 +57,7 @@ namespace DesafioFundamentos.Models
                 Console.WriteLine("Desculpe, esse veículo não está estacionado aqui. Confira se digitou a placa corretamente.");
             }
         }
-
+         //  <<<<< Lista Veiculos estacionados>>>>>
         public void ListarVeiculos()
         {
             if (veiculos.Any())
